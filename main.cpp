@@ -53,7 +53,6 @@ void display_text()
 		bitmap_output(10, 575, "MENU",GLUT_BITMAP_9_BY_15);
 		bitmap_output(10, 555, "Press s to SORT",GLUT_BITMAP_9_BY_15);
 		bitmap_output(10, 535, "Press c to SELECT the sort algorithm",GLUT_BITMAP_9_BY_15);
-		bitmap_output(10, 515, "Press r to RANDOMISE",GLUT_BITMAP_9_BY_15);
 		bitmap_output(10, 495, "Esc to QUIT",GLUT_BITMAP_9_BY_15);
 		bitmap_output(10, 475, "Selected sort: ",GLUT_BITMAP_9_BY_15);
 		bitmap_output(150, 475, *(sort_string+sort_count),GLUT_BITMAP_9_BY_15);
@@ -259,7 +258,6 @@ void keyboard (unsigned char key, int x, int y)
 		{
 			case 27	 :	exit (0); // 27 is the ascii code for the ESC key
 			case 's' :	sorting = 1; break;
-			case 'r' :	init(); break;
 			case 'c' :	sort_count=(sort_count+1)%SORT_NO;	break;
 		}
 	}
