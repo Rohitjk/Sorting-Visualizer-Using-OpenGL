@@ -28,7 +28,7 @@ void bitmap_output(int x, int y, char *string, void *font)
 	}
 }
 
-// Function to integer to string
+// Function to convert integer to string to print below the rectangles
 void int_str(int rad,char r[])
 {
 	itoa(rad,r,10);
@@ -36,7 +36,7 @@ void int_str(int rad,char r[])
 
 void display_text()
 {
-	glColor3f(0,0,1);
+	glColor3f(0,0,0);
 	bitmap_output(150, 665, "SORTING ALGORITHM VISUALIZER",GLUT_BITMAP_TIMES_ROMAN_24);
 	glBegin(GL_LINE_LOOP);
 		glVertex2f(145, 660);
@@ -71,7 +71,7 @@ void display_text()
 void init() {
 	int temp1;
 
-	// Reset the array
+	// Reset the array to random values
 	for(temp1=0;temp1<MAX;temp1++){
 		a[temp1]=rand()%100+1;
 		printf("%d ",a[temp1]);
@@ -81,9 +81,7 @@ void init() {
 	i=j=0;
 	flag=0;
 
-	glClearColor(1,1,1,1);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
+	glClearColor(.62,.37,.50,1);
 	gluOrtho2D(0, 699,0,799);
 }
 
@@ -266,14 +264,14 @@ void keyboard (unsigned char key, int x, int y)
 		}
 	}
 	if(sorting==1)
-		if(key=='p')	sorting=0;
+		if(key=='p')
+            sorting=0;
 }
 
 // Main Function
 int main(int argc,char **argv)
 {
 	glutInit(&argc,argv);
-	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
 	glutInitWindowSize(1000,600);
 	glutInitWindowPosition(0,0);
 	glutCreateWindow("Sorting Visualizer");
